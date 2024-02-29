@@ -1,3 +1,3 @@
 {
-  "abutton":["AButton.tsx", "../IconLabel/IconLabel.tsx"]
+  "abutton":["AButton.tsx", "../IconLabel.tsx"]
 }
