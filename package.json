@@ -1,0 +1,35 @@
+{
+  "name": "attlr-ui",
+  "version": "0.0.1",
+  "description": "Attlr UI components for your react native projects",
+  "main": "index.tsx",
+  "type": "module",
+  "private": false,
+  "exports": {
+    ".": {
+      "import": "./index.tsx"
+    }
+  },
+  "scripts": {
+    "lint": "tsc --noEmit && eslint . --ext .ts,.tsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attlr-ui/ui-components.git"
+  },
+  "keywords": [
+    "attlr",
+    "react-native-ui",
+    "react-native-components"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/attlr-ui/ui-components/issues"
+  },
+  "homepage": "https://github.com/attlr-ui/ui-components#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@types/react": "^18.2.61"
+  }
+}
