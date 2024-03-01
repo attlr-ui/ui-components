@@ -109,15 +109,18 @@ const buttonStyles = StyleSheet.create({
 	danger: {
 		backgroundColor: "red",
 	},
+	ghost: {
+		backgroundColor: "transparent",
+		borderWidth: 0,
+	},
+	// Fill styles here
+	solid: {
+		backgroundColor: "black",
+	},
 	outline: {
 		backgroundColor: "transparent",
 		borderColor: "black",
 		borderWidth: 2,
-		shadowColor: "transparent",
-	},
-	ghost: {
-		backgroundColor: "transparent",
-		borderWidth: 0,
 	},
 	// size styles here
 	sm: {
