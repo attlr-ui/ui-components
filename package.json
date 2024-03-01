@@ -33,5 +33,9 @@
     "@types/react": "^18.2.61",
     "typescript": "latest",
     "eslint": "latest"
+  },
+  "peerDependencies": {
+    "react": "latest",
+    "react-native": "latest"
   }
 }
