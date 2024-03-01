@@ -30,6 +30,8 @@
   "homepage": "https://github.com/attlr-ui/ui-components#readme",
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
-    "@types/react": "^18.2.61"
+    "@types/react": "^18.2.61",
+    "typescript": "latest",
+    "eslint": "latest"
   }
 }
