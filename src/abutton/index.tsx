@@ -15,11 +15,12 @@ type AButtonProps = {
 	iconLeft?: React.ReactNode;
 	iconRight?: React.ReactNode;
 	fill?: "solid" | "outline";
-	variant?: "default" | "danger";
+	variant?: "default" | "danger" | "ghost" | "outline";
 	loading?: boolean;
 	size?: "sm" | "md" | "lg" | "full";
 	loadingColor?: string;
 	loadSize?: "small" | "large";
+	customLoadingIndicator?: React.ReactNode;
 };
 
 const AButton = React.forwardRef<View, PressableProps & AButtonProps>(
@@ -29,6 +30,7 @@ const AButton = React.forwardRef<View, PressableProps & AButtonProps>(
 			icon,
 			variant = "default",
 			loading,
+			customLoadingIndicator,
 			style,
 			...otherProps
 		} = props;
@@ -43,17 +45,21 @@ const AButton = React.forwardRef<View, PressableProps & AButtonProps>(
 					buttonStyles[props.size || "md"],
 					buttonStyles[props.fill || "solid"],
 					(pressed || loading) && { opacity: 0.6 },
-					style,
+					style, // rewrite default styles
 				]}
 				disabled={loading}
 			>
 				<>
 					{props.iconLeft}
 					{loading ? (
-						<ActivityIndicator
-							size={props.loadSize || "small"}
-							color={props.loadingColor || "black"}
-						/>
+						customLoadingIndicator ? (
+							customLoadingIndicator
+						) : (
+							<ActivityIndicator
+								size={props.loadSize || "small"}
+								color={props.loadingColor || "black"}
+							/>
+						)
 					) : icon ? null : (
 						children
 					)}
