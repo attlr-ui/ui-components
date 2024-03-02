@@ -1,6 +1,6 @@
 {
     "abutton": {
         "path": "abutton/abutton.tsx",
-        "dependencies": []
+        "dependencies": ["expo-av"]
     }
 }
