@@ -192,4 +192,4 @@ const textStyles = StyleSheet.create({
 AButton.displayName = 'AButton'
 AButtonText.displayName = 'AButtonText'
 
-export { AButton, AButtonText }
+export { AButton, AButtonText, AButtonProps, AButtonTextProps }
