@@ -33,7 +33,7 @@ jobs:
           git config --global user.name "Axole Maranjana"
 
       - name: Run npm version prerelease
-        run: npm version prerelease
+        run: npm version prerelease --preid=next
 
       - name: Publish to GitHub Packages
         run: npm publish --access public --tag next
