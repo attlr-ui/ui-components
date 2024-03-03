@@ -208,4 +208,4 @@ const labelStyles = StyleSheet.create({
 
 AInput.displayName = 'AInput'
 
-export { AInput }
+export { AInput, AInputProps }
