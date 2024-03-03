@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: 'Hello! Thanks for opening an issue. We are accepting contributions. Please check the contributing guidelines to get started. If you are not contributing please make sure to provide all the necessary information.'
+          pr-message: 'Thanks for the pull request! We will review it as soon as possible. If you are contributing please make sure to follow the contributing guidelines.'
