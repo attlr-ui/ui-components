@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import React, { forwardRef, useState } from 'react'
 
 import type { StyleProp, ViewStyle, TextInputProps } from 'react-native'
