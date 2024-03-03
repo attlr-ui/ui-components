@@ -58,69 +58,62 @@ type AInputProps = {
   iconStyle?: StyleProp<ViewStyle>
 }
 
-const AInput = forwardRef<TextInput, AInputProps & TextInputProps>(
-  (props, ref) => {
-    const {
-      variant = 'default',
-      style,
-      label,
-      labelStyle,
-      ...otherProps
-    } = props
-    const [isFocused, setIsFocused] = useState(false)
-    return (
+const AInput: React.ForwardRefExoticComponent<
+  AInputProps & TextInputProps & React.RefAttributes<TextInput>
+> = forwardRef<TextInput, AInputProps & TextInputProps>((props, ref) => {
+  const { variant = 'default', style, label, labelStyle, ...otherProps } = props
+  const [isFocused, setIsFocused] = useState(false)
+  return (
+    <View
+      style={[
+        containerStyles.base,
+        { borderColor: isFocused ? '#18181B' : '#A1A1AA' },
+      ]}>
+      {label && <Text style={[labelStyles.base, labelStyle]}>{label}</Text>}
+
       <View
         style={[
-          containerStyles.base,
-          { borderColor: isFocused ? '#18181B' : '#A1A1AA' },
+          inputContainerStyles.base,
+          containerStyles[props.size ?? 'md'],
+          variant === 'underline' && inputContainerStyles.underline,
+          isFocused &&
+            inputStyle[
+              `${variant}-underline` as
+                | 'focused-underline'
+                | 'default-underline'
+            ],
+          otherProps.inputContainerStyle,
         ]}>
-        {label && <Text style={[labelStyles.base, labelStyle]}>{label}</Text>}
+        {props.iconLeft && (
+          <View style={[iconStyles.base, props.iconStyle, props.leftIconStyle]}>
+            {props.iconLeft}
+          </View>
+        )}
 
-        <View
-          style={[
-            inputContainerStyles.base,
-            containerStyles[props.size ?? 'md'],
-            variant === 'underline' && inputContainerStyles.underline,
-            isFocused &&
-              inputStyle[
-                `${variant}-underline` as
-                  | 'focused-underline'
-                  | 'default-underline'
-              ],
-            otherProps.inputContainerStyle,
-          ]}>
-          {props.iconLeft && (
-            <View
-              style={[iconStyles.base, props.iconStyle, props.leftIconStyle]}>
-              {props.iconLeft}
-            </View>
-          )}
+        <TextInput
+          ref={ref}
+          {...otherProps}
+          style={[inputStyle.base, inputStyle[props.size ?? 'md'], style]}
+          onFocus={(e) => {
+            setIsFocused(true)
+            otherProps.onFocus?.(e)
+          }}
+          onBlur={(e) => {
+            setIsFocused(false)
+            otherProps.onFocus?.(e)
+          }}
+        />
 
-          <TextInput
-            ref={ref}
-            {...otherProps}
-            style={[inputStyle.base, inputStyle[props.size ?? 'md'], style]}
-            onFocus={(e) => {
-              setIsFocused(true)
-              otherProps.onFocus?.(e)
-            }}
-            onBlur={(e) => {
-              setIsFocused(false)
-              otherProps.onFocus?.(e)
-            }}
-          />
-
-          {props.iconRight && (
-            <View
-              style={[iconStyles.base, props.iconStyle, props.rightIconStyle]}>
-              {props.iconRight}
-            </View>
-          )}
-        </View>
+        {props.iconRight && (
+          <View
+            style={[iconStyles.base, props.iconStyle, props.rightIconStyle]}>
+            {props.iconRight}
+          </View>
+        )}
       </View>
-    )
-  }
-)
+    </View>
+  )
+})
 
 const inputStyle = StyleSheet.create({
   base: {
