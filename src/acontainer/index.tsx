@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import React, { type JSX } from 'react'
-import { View, StyleSheet, ViewStyle } from 'react-native'
+import { View, StyleSheet, ViewStyle, FlexStyle } from 'react-native'
 import { LinearGradient, LinearGradientProps } from 'expo-linear-gradient'
 
 interface AContainerProps {
@@ -59,7 +60,7 @@ interface AContainerProps {
   flex?: number
 }
 
-const AContainer = (props: AContainerProps) => {
+const AContainer = (props: AContainerProps): JSX.Element => {
   const {
     children,
     topColor,
@@ -161,6 +162,7 @@ const radiusStyles = StyleSheet.create<any>({
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   bottom: (height: number) => ({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -175,4 +177,5 @@ const radiusStyles = StyleSheet.create<any>({
   },
 })
 
+AContainer.name = 'AContainer'
 export { AContainer, AContainerProps }

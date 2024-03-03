@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import React from 'react'
 import { FlexStyle, View, ViewProps } from 'react-native'
 
@@ -34,7 +35,7 @@ interface AvStackProps extends Omit<ViewProps, 'style.flexDirection'> {
   br?: number
 }
 
-const AvStack = (props: AvStackProps) => {
+const AvStack = (props: AvStackProps): React.JSX.Element => {
   return (
     <View
       {...props}
@@ -74,4 +75,5 @@ const AvStack = (props: AvStackProps) => {
   )
 }
 
+AvStack.name = 'AvStack'
 export { AvStack, AvStackProps }
