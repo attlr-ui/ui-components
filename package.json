@@ -13,7 +13,8 @@
   "files": [
     "index.tsx",
     "src",
-    "package.json"
+    "package.json",
+    ".npmrc"
   ],
   "scripts": {
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx --fix"
