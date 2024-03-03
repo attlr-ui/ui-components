@@ -18,16 +18,57 @@ import type {
 } from 'react-native'
 
 type AButtonProps = {
+  /**
+   *  Make the button an icon button (no text)
+   **/
   icon?: boolean
-  iconLeft?: ReactNode
-  iconRight?: ReactNode
+  /**
+   *  Icon to be displayed on the left side of the button
+   **/
+  iconLeft?: JSX.Element
+  /**
+   *  Icon to be displayed on the right side of the button
+   **/
+  iconRight?: JSX.Element
+  /**
+   *  Fill of the button
+   * - solid: solid fill
+   * - outline: outlined fill
+   **/
   fill?: 'solid' | 'outline'
+  /**
+   *  Variant of the button
+   * - default: default button
+   * - danger: danger button
+   * - ghost: ghost button
+   **/
   variant?: 'default' | 'danger' | 'ghost' | 'outline'
+  /**
+   *  Loading state of the button
+   **/
   loading?: boolean
+  /**
+   *  Size of the button
+   * - sm: small
+   * - md: medium
+   * - lg: large
+   * - full: full width
+   **/
   size?: 'sm' | 'md' | 'lg' | 'full'
+  /**
+   *  Color of the loading indicator
+   **/
   loadingColor?: string
+  /**
+   *  Size of the loading indicator
+   * - small: small size
+   * - large: large size
+   **/
   loadSize?: 'small' | 'large'
-  customLoadingIndicator?: ReactNode
+  /**
+   *  Custom loading indicator
+   **/
+  customLoadingIndicator?: JSX.Element
 }
 
 const AButton = forwardRef<View, PressableProps & AButtonProps>(
@@ -78,7 +119,21 @@ const AButton = forwardRef<View, PressableProps & AButtonProps>(
 )
 
 type AButtonTextProps = {
+  /**
+   *  Variant of the button
+   * - default: default button
+   * - danger: danger button
+   * - outline: outlined button
+   * - ghost: ghost button
+   **/
   variant?: 'default' | 'danger' | 'outline' | 'ghost'
+  /**
+   *  Size of the button
+   * - sm: small
+   * - md: medium
+   * - lg: large
+   * - full: full width
+   **/
   size?: 'sm' | 'md' | 'lg' | 'full'
 }
 
