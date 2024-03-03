@@ -1,6 +1,6 @@
 {
   "name": "@attlr/ui-components",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "description": "Attlr UI components for your react native projects",
   "main": "index.tsx",
   "type": "module",

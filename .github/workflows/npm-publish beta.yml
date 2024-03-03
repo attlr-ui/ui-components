@@ -38,3 +38,22 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  publish-github:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com/
+          scope: '@attlr'
+      - name: Bump version
+        run: npm version patch
+
+      - name: Publish to GitHub Packages
+        run: npm publish
+
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
