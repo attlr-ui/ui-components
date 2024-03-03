@@ -175,4 +175,4 @@ const radiusStyles = StyleSheet.create<any>({
   },
 })
 
-export { AContainer }
+export { AContainer, AContainerProps }
