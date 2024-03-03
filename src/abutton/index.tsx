@@ -8,6 +8,9 @@ import {
 	StyleSheet,
 	Dimensions,
 	ActivityIndicator,
+	PressableStateCallbackType,
+	StyleProp,
+	ViewStyle,
 } from "react-native";
 
 type AButtonProps = {
@@ -39,14 +42,16 @@ const AButton = React.forwardRef<View, PressableProps & AButtonProps>(
 			<Pressable
 				ref={ref}
 				{...otherProps}
-				style={({ pressed }) => [
-					buttonStyles.base,
-					buttonStyles[variant],
-					buttonStyles[props.size || "md"],
-					buttonStyles[props.fill || "solid"],
-					(pressed || loading) && { opacity: 0.6 },
-					style, // rewrite default styles
-				]}
+				style={(state: PressableStateCallbackType) =>
+					[
+						buttonStyles.base,
+						buttonStyles[variant],
+						buttonStyles[props.size || "md"],
+						buttonStyles[props.fill || "solid"],
+						(state.pressed || loading) && { opacity: 0.6 },
+						style, // rewrite default styles
+					] as StyleProp<ViewStyle>
+				}
 				disabled={loading}
 			>
 				<>
