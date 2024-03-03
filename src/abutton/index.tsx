@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import React from 'react'
+import React, { FC, ReactNode, forwardRef } from 'react'
+
 import {
   Pressable,
   Text,
@@ -18,18 +19,18 @@ import type {
 
 type AButtonProps = {
   icon?: boolean
-  iconLeft?: React.ReactNode
-  iconRight?: React.ReactNode
+  iconLeft?: ReactNode
+  iconRight?: ReactNode
   fill?: 'solid' | 'outline'
   variant?: 'default' | 'danger' | 'ghost' | 'outline'
   loading?: boolean
   size?: 'sm' | 'md' | 'lg' | 'full'
   loadingColor?: string
   loadSize?: 'small' | 'large'
-  customLoadingIndicator?: React.ReactNode
+  customLoadingIndicator?: ReactNode
 }
 
-const AButton = React.forwardRef<View, PressableProps & AButtonProps>(
+const AButton = forwardRef<View, PressableProps & AButtonProps>(
   (props, ref) => {
     const {
       children,
@@ -58,7 +59,7 @@ const AButton = React.forwardRef<View, PressableProps & AButtonProps>(
         }
         disabled={loading}>
         <>
-          {props.iconLeft}
+          {!loading && props.iconLeft}
           {loading
             ? customLoadingIndicator ?? (
                 <ActivityIndicator
@@ -69,7 +70,7 @@ const AButton = React.forwardRef<View, PressableProps & AButtonProps>(
             : icon
             ? null
             : children}
-          {props.iconRight}
+          {!loading && props.iconRight}
         </>
       </Pressable>
     )
@@ -81,7 +82,7 @@ type AButtonTextProps = {
   size?: 'sm' | 'md' | 'lg' | 'full'
 }
 
-const AButtonText: React.FC<AButtonTextProps & TextProps> = (props) => {
+const AButtonText: FC<AButtonTextProps & TextProps> = (props) => {
   const { style, ...otherProps } = props
   return (
     <Text
@@ -101,7 +102,7 @@ const buttonStyles = StyleSheet.create({
   base: {
     minHeight: 40,
     minWidth: 100,
-    borderRadius: 5,
+    borderRadius: 6,
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-around',
