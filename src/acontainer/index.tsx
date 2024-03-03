@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import React, { type JSX } from 'react'
-import { View, StyleSheet, ViewStyle, FlexStyle } from 'react-native'
+import { View, StyleSheet, ViewStyle } from 'react-native'
 import { LinearGradient, LinearGradientProps } from 'expo-linear-gradient'
 
 interface AContainerProps {
@@ -105,7 +105,7 @@ const AContainer = (props: AContainerProps): JSX.Element => {
             height: '100%',
             width: '100%',
             position: 'absolute',
-            transform: [{ scale: scale ? scale : 1 }],
+            transform: [{ scale: scale ?? 1 }],
             ...linearGradientStyle,
           },
         ]}
@@ -121,7 +121,7 @@ const AContainer = (props: AContainerProps): JSX.Element => {
             alignItems,
             flexDirection,
             flex,
-            padding: padding ? padding : 0,
+            padding: padding ?? 0,
           },
           contentContainerStyle,
         ]}>
