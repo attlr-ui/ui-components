@@ -35,7 +35,7 @@ jobs:
         run: npm version prerelease
 
       - name: Publish to GitHub Packages
-        run: npm publish --access public
+        run: npm publish --access public --tag next
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
@@ -49,11 +49,16 @@ jobs:
           node-version: 20
           registry-url: https://npm.pkg.github.com/
           scope: '@attlr'
+      - name: Configure Git identity
+        run: |
+          git config --global user.email "axolemaranjana4@gmail.com"
+          git config --global user.name "Axole Maranjana"
+
       - name: Bump version
         run: npm version patch
 
       - name: Publish to GitHub Packages
-        run: npm publish
+        run: npm publish --access public --tag next
 
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
