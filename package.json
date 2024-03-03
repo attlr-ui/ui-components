@@ -1,6 +1,6 @@
 {
-  "name": "@attlr-ui/ui-components",
-  "version": "0.0.1",
+  "name": "@attlr/ui-components",
+  "version": "0.0.1-beta.3",
   "description": "Attlr UI components for your react native projects",
   "main": "index.tsx",
   "type": "module",
@@ -10,6 +10,11 @@
       "import": "./index.tsx"
     }
   },
+  "files": [
+    "index.tsx",
+    "src",
+    "package.json"
+  ],
   "scripts": {
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx --fix"
   },
@@ -42,6 +47,8 @@
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-native": "^0.73.4"
+    "react-native": "^0.73.4",
+    "react-native-svg": "^15.0.0",
+    "lucide-react-native": "^0.344.0"
   }
 }

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import React from 'react'
+import React, { FC, forwardRef } from 'react'
+
 import {
   Pressable,
   Text,
@@ -17,19 +18,60 @@ import type {
 } from 'react-native'
 
 type AButtonProps = {
+  /**
+   *  Make the button an icon button (no text)
+   **/
   icon?: boolean
-  iconLeft?: React.ReactNode
-  iconRight?: React.ReactNode
+  /**
+   *  Icon to be displayed on the left side of the button
+   **/
+  iconLeft?: JSX.Element
+  /**
+   *  Icon to be displayed on the right side of the button
+   **/
+  iconRight?: JSX.Element
+  /**
+   *  Fill of the button
+   * - solid: solid fill
+   * - outline: outlined fill
+   **/
   fill?: 'solid' | 'outline'
+  /**
+   *  Variant of the button
+   * - default: default button
+   * - danger: danger button
+   * - ghost: ghost button
+   **/
   variant?: 'default' | 'danger' | 'ghost' | 'outline'
+  /**
+   *  Loading state of the button
+   **/
   loading?: boolean
+  /**
+   *  Size of the button
+   * - sm: small
+   * - md: medium
+   * - lg: large
+   * - full: full width
+   **/
   size?: 'sm' | 'md' | 'lg' | 'full'
+  /**
+   *  Color of the loading indicator
+   **/
   loadingColor?: string
+  /**
+   *  Size of the loading indicator
+   * - small: small size
+   * - large: large size
+   **/
   loadSize?: 'small' | 'large'
-  customLoadingIndicator?: React.ReactNode
+  /**
+   *  Custom loading indicator
+   **/
+  customLoadingIndicator?: JSX.Element
 }
 
-const AButton = React.forwardRef<View, PressableProps & AButtonProps>(
+const AButton = forwardRef<View, PressableProps & AButtonProps>(
   (props, ref) => {
     const {
       children,
@@ -58,7 +100,7 @@ const AButton = React.forwardRef<View, PressableProps & AButtonProps>(
         }
         disabled={loading}>
         <>
-          {props.iconLeft}
+          {!loading && props.iconLeft}
           {loading
             ? customLoadingIndicator ?? (
                 <ActivityIndicator
@@ -69,7 +111,7 @@ const AButton = React.forwardRef<View, PressableProps & AButtonProps>(
             : icon
             ? null
             : children}
-          {props.iconRight}
+          {!loading && props.iconRight}
         </>
       </Pressable>
     )
@@ -77,11 +119,25 @@ const AButton = React.forwardRef<View, PressableProps & AButtonProps>(
 )
 
 type AButtonTextProps = {
+  /**
+   *  Variant of the button
+   * - default: default button
+   * - danger: danger button
+   * - outline: outlined button
+   * - ghost: ghost button
+   **/
   variant?: 'default' | 'danger' | 'outline' | 'ghost'
+  /**
+   *  Size of the button
+   * - sm: small
+   * - md: medium
+   * - lg: large
+   * - full: full width
+   **/
   size?: 'sm' | 'md' | 'lg' | 'full'
 }
 
-const AButtonText: React.FC<AButtonTextProps & TextProps> = (props) => {
+const AButtonText: FC<AButtonTextProps & TextProps> = (props) => {
   const { style, ...otherProps } = props
   return (
     <Text
@@ -101,7 +157,7 @@ const buttonStyles = StyleSheet.create({
   base: {
     minHeight: 40,
     minWidth: 100,
-    borderRadius: 5,
+    borderRadius: 6,
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -191,4 +247,4 @@ const textStyles = StyleSheet.create({
 AButton.displayName = 'AButton'
 AButtonText.displayName = 'AButtonText'
 
-export { AButton, AButtonText }
+export { AButton, AButtonText, AButtonProps, AButtonTextProps }

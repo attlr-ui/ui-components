@@ -2,5 +2,9 @@
     "abutton": {
         "path": "abutton/abutton.tsx",
         "dependencies": []
+    },
+    "ainput": {
+        "path": "ainput/ainput.tsx",
+        "dependencies": []
     }
 }
