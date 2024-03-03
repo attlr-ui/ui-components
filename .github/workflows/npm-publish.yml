@@ -26,7 +26,7 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
       - name: Bump version
-        run: npm version prerelease
+        run: npm version patch
 
       - name: Publish to NPM
         run: npm publish
