@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import React, { FC, ReactNode, forwardRef } from 'react'
+import React, { FC, forwardRef } from 'react'
 
 import {
   Pressable,
