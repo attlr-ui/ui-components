@@ -14,7 +14,8 @@
     "index.tsx",
     "src",
     "package.json",
-    ".npmrc"
+    ".npmrc",
+    "license"
   ],
   "scripts": {
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx --fix"

@@ -3,7 +3,7 @@
 list
 assets
 tsconfig.json
-readme.md
 .eslintrc.json
 .prettierrc
 readme.md
+CONTRIBUTING.md

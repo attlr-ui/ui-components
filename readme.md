@@ -46,6 +46,6 @@ You can find the documentation [here](https://ui.attlr.org.za/)
 
 ## Contributing
 
-We are open to contributions. Please read create a new [issue](https://github.com/attlr-ui/ui-components/issues/new/choose) and a pull request for any feature or bug fix.
+We are open to contributions, get started by reading our [contributing guide](./CONTRIBUTING.md)
 
 Made with ❤️ by [Attlr](https://attlr.org.za)
