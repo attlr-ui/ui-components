@@ -9,18 +9,64 @@ import {
 } from 'react-native'
 
 interface ABadgeProps {
+  /**
+   * solid | outline | ghost
+   * @default solid
+   * */
   fill?: 'solid' | 'outline' | 'ghost'
+  /***
+   * sm | md | lg
+   * @default sm
+   */
   size?: 'sm' | 'md' | 'lg'
+  /**
+   * xs | sm | md | lg | number
+   * @default sm
+   * @description If a number is passed, it will be used as the borderRadius
+   **/
   borderRadius?: 'xs' | 'sm' | 'md' | 'lg' | number
   variant?: 'success' | 'warning' | 'error' | 'info'
+  /**
+   *   Space between the badge and its children
+   *  @default 4
+   * **/
   gap?: number
 }
 
-const BadgeContext = React.createContext<ABadgeProps>({})
+const BadgeContext: React.Context<ABadgeProps> =
+  React.createContext<ABadgeProps>({})
 
+/**
+    *   A badge component that is used to display a small amount of information
+    *  @example 
+    * <ABadge
+            borderRadius='lg'
+            // size='lg'
+            variant='error'
+            fill='solid'
+            // gap={10}
+        >
+            <Star size={14} color="white" />
+            <ABadgeText>Axole Maranjana</ABadgeText>
+        </ABadge>   
+    * @param {ABadgeProps} props
+    * @param {React.ReactNode} children
+    * @param {StyleProp<ViewStyle>} style
+    * @returns {React.JSX.Element}
+        **/
 const ABadge: React.FC<
-  ABadgeProps & { children: React.ReactNode; style: StyleProp<ViewStyle> }
-> = ({ children, style, ...props }) => {
+  ABadgeProps & {
+    children: React.ReactNode
+    style: StyleProp<ViewStyle>
+  }
+> = ({
+  children,
+  style,
+  ...props
+}: ABadgeProps & {
+  children: React.ReactNode
+  style: StyleProp<ViewStyle>
+}): React.JSX.Element => {
   return (
     <BadgeContext.Provider value={{ ...props }}>
       <View
@@ -46,7 +92,16 @@ const ABadge: React.FC<
   )
 }
 
-const ABadgeText: React.FC<TextProps> = ({ ...props }) => {
+/**
+ *  A badge text component that is used to display a small amount of information
+ * @example
+ * <ABadgeText>Axole Maranjana</ABadgeText>
+ * @param {TextProps} props
+ * @returns {React.JSX.Element}
+ * **/
+const ABadgeText: React.FC<TextProps> = ({
+  ...props
+}: TextProps): React.JSX.Element => {
   const badgeProps = React.useContext(BadgeContext)
   return (
     <Text
@@ -62,7 +117,9 @@ const ABadgeText: React.FC<TextProps> = ({ ...props }) => {
   )
 }
 
-const fillStyles = (variant: ABadgeProps['variant']) =>
+const fillStyles = (
+  variant: ABadgeProps['variant']
+): { [key: string]: { [key: string]: string | number } } =>
   StyleSheet.create({
     solid: {
       backgroundColor:
@@ -72,8 +129,6 @@ const fillStyles = (variant: ABadgeProps['variant']) =>
           ? 'yellow'
           : variant === 'error'
           ? 'red'
-          : variant === 'info'
-          ? 'black'
           : 'black',
     },
     outline: {
