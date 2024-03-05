@@ -16,7 +16,8 @@
     "react/react-in-jsx-scope": 1,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
-    "no-unused-vars": 2
+    "no-unused-vars": 2,
+    "@typescript-eslint/strict-boolean-expressions": 0
   },
   "settings": {
     "react": {
