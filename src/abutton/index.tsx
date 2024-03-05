@@ -85,6 +85,7 @@ const AButton = forwardRef<View, PressableProps & AButtonProps>(
 
     return (
       <Pressable
+        accessibilityLabel="button"
         ref={ref}
         {...otherProps}
         style={({ pressed }): StyleProp<ViewStyle> =>
