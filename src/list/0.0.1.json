@@ -1,10 +1,24 @@
 {
     "abutton": {
-        "path": "abutton/abutton.tsx",
+        "path": "abutton/index.tsx",
         "dependencies": []
     },
     "ainput": {
-        "path": "ainput/ainput.tsx",
+        "path": "ainput/index.tsx",
         "dependencies": []
+    },
+    "avstack": {
+        "path": "avstack/index.tsx",
+        "dependencies": []
+    },
+    "ahstack": {
+        "path": "ahstack/index.tsx",
+        "dependencies": []
+    },
+    "acontainer": {
+        "path": "acontainer/index.tsx",
+        "dependencies": [
+            "expo-linear-gradient"
+        ]
     }
 }

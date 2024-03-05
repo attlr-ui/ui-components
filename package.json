@@ -7,9 +7,14 @@
   "private": false,
   "exports": {
     ".": {
-      "import": "./index.tsx"
-    }
+      "import": "./index.tsx",
+      "require": "./index.tsx",
+      "types": "./index.ts",
+      "default": "./index.tsx"
+    },
+    "./src": null
   },
+  "types": "index.ts",
   "files": [
     "index.tsx",
     "src",
@@ -17,6 +22,14 @@
     ".npmrc",
     "license"
   ],
+  "rn-docs": {
+    "title": "Attlr UI Components",
+    "type": "react-native",
+    "platforms": {
+      "ios": "",
+      "android": ""
+    }
+  },
   "scripts": {
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx --fix"
   },
@@ -52,5 +65,8 @@
     "react-native": "^0.73.4",
     "react-native-svg": "^15.0.0",
     "lucide-react-native": "^0.344.0"
+  },
+  "dependencies": {
+    "expo-linear-gradient": "^12.7.2"
   }
 }
