@@ -129,6 +129,18 @@ interface ATextProps {
   borderColor?: ColorValue
 }
 
+/**
+ * AText is a component used to render text.
+ * 
+ * @example
+ *  <AText
+          textColor='secondary'
+          highlight="red"
+          p={10}
+        >
+          This is a text
+    </AText>
+**/
 const AText: React.FC<ATextProps & TextProps> = ({
   children,
   ...props
