@@ -70,6 +70,7 @@ const ABadge: React.FC<
   return (
     <BadgeContext.Provider value={{ ...props }}>
       <View
+        accessibilityLabel="badge"
         style={[
           badgeStyles.badge,
           fillStyles(props.variant ?? 'info')[props.fill ?? 'solid'],
@@ -105,6 +106,7 @@ const ABadgeText: React.FC<TextProps> = ({
   const badgeProps = React.useContext(BadgeContext)
   return (
     <Text
+      accessibilityLabel="badge-text"
       {...props}
       style={[
         badgeTextStyles.badge,
@@ -224,5 +226,8 @@ const badgeTextStyles = StyleSheet.create({
     color: 'black',
   },
 })
+
+ABadge.displayName = 'ABadge'
+ABadgeText.displayName = 'ABadgeText'
 
 export { ABadge, ABadgeProps, ABadgeText }

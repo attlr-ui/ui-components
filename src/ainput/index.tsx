@@ -72,6 +72,8 @@ const AInput: React.ForwardRefExoticComponent<
       {label && <Text style={[labelStyles.base, labelStyle]}>{label}</Text>}
 
       <View
+        accessibilityLabel="text-input"
+        accessibilityHint="Keyboard will be displayed when you tap here"
         style={[
           inputContainerStyles.base,
           containerStyles[props.size ?? 'md'],

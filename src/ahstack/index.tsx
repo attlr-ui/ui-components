@@ -75,5 +75,6 @@ const AhStack = (props: AhStackProps): React.JSX.Element => {
   )
 }
 
-AhStack.name = 'AhStack'
+AhStack['name'] = 'AhStack'
+
 export { AhStack, AhStackProps }

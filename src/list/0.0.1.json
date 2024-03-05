@@ -20,5 +20,17 @@
         "dependencies": [
             "expo-linear-gradient"
         ]
+    },
+    "abadge": {
+        "path": "abadge/index.tsx",
+        "dependencies": []
+    },
+    "atext": {
+        "path": "atext/index.tsx",
+        "dependencies": []
+    },
+    "aheading": {
+        "path": "aheading/index.tsx",
+        "dependencies": []
     }
 }

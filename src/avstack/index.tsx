@@ -76,4 +76,6 @@ const AvStack = (props: AvStackProps): React.JSX.Element => {
 }
 
 AvStack.name = 'AvStack'
+AvStack.prototype = View.prototype
+
 export { AvStack, AvStackProps }
