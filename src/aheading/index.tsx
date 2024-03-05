@@ -7,16 +7,7 @@ import {
   TextProps,
 } from 'react-native'
 
-interface ATextProps {
-  /**
-   * If true, it will render an ellipsis when the text exceeds the width of the viewport or maxWidth set.
-   * @default false
-   * **/
-  isTruncated?: boolean
-  /**
-   * Used to make the text bold.
-   * @default false
-   * **/
+interface AHeadingProps {
   bold?: boolean
   /**
    * Used to make the text italic.
@@ -29,18 +20,12 @@ interface ATextProps {
    * **/
   underline?: boolean
   /**
-   * A horizontal line through the center of the text.
-   * @default false
+   * Used to highlight the text.
+   * @default undefined
    * **/
-  strikeThrough?: boolean
-
-  sub?: boolean
-  /**
-   * Used to highlight the text with a specific color.
-   * @default undefined * */
   highlight?: string
   /**
-   * Used to change the color of the text.
+   * A color to highlight the text.
    * @default "#09090B"
    * **/
   textColor?: 'primary' | 'secondary' | 'ghost' | string
@@ -130,29 +115,25 @@ interface ATextProps {
 }
 
 /**
- * AText is a component used to render text.
- * 
+ * AHeading is a component used to render a text with a heading style.
  * @example
- *  <AText
-          textColor='secondary'
+ *    <AHeading
+          textColor='primary'
           highlight="red"
-          p={10}
+          size='xl'
+          underline
         >
-          This is a text
-    </AText>
-**/
-const AText: React.FC<ATextProps & TextProps> = ({
+          This is a heading</AHeading>
+      </AvStack >
+ **/
+const AHeading: React.FC<AHeadingProps & TextProps> = ({
   children,
   ...props
 }): React.JSX.Element => {
   const {
-    isTruncated,
     bold,
     italic,
     underline,
-    strikeThrough,
-    sub,
-    highlight,
     textColor,
     size,
     mt,
@@ -189,17 +170,11 @@ const AText: React.FC<ATextProps & TextProps> = ({
               : textColor === 'ghost'
               ? '#D4D4D8'
               : textColor,
-          fontSize: FontSize[size ?? FontSize.md],
-          fontWeight: bold ? 'bold' : 'normal',
+          fontSize: FontSize[size ?? 'xl'],
+          fontWeight: bold ? 'normal' : 'bold',
           fontStyle: italic ? 'italic' : 'normal',
-          textDecorationLine: underline
-            ? 'underline'
-            : strikeThrough
-            ? 'line-through'
-            : 'none',
-          lineHeight: sub ? 16 : 20,
-          backgroundColor: highlight,
-          overflow: isTruncated ? 'hidden' : 'visible',
+          textDecorationLine: underline ? 'underline' : 'none',
+          backgroundColor: props.highlight,
         },
         {
           marginTop: mt,
@@ -228,34 +203,31 @@ const AText: React.FC<ATextProps & TextProps> = ({
 }
 
 const FontSize: { [key: string]: number } = {
-  xs: 12,
-  sm: 14,
-  md: 16,
-  lg: 18,
-  xl: 20,
-  '2xl': 24,
-  '3xl': 30,
+  xs: 20,
+  sm: 22,
+  md: 24,
+  lg: 26,
+  xl: 28,
+  '2xl': 30,
+  '3xl': 32,
   '4xl': 36,
   '5xl': 48,
   '6xl': 64,
 }
 
-AText.displayName = 'AText'
-AText.prototype = Text.prototype
+AHeading.displayName = 'AHeading'
+AHeading.prototype = Text.prototype
 
-AText.defaultProps = {
-  isTruncated: false,
-  bold: false,
+AHeading.defaultProps = {
+  bold: true,
   italic: false,
   underline: false,
-  strikeThrough: false,
-  sub: false,
   highlight: undefined,
   textColor: '#09090B',
-  size: 'md',
+  size: 'xl',
   p: 1,
   m: 1,
   borderRadius: 1,
 }
 
-export { AText, ATextProps }
+export { AHeading, AHeadingProps }
