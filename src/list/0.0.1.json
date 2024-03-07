@@ -32,5 +32,15 @@
     "aheading": {
         "path": "aheading/index.tsx",
         "dependencies": []
+    },
+    "aavatar": {
+        "path": "aavatar/index.tsx",
+        "dependencies": [
+            "expo-image"
+        ]
+    },
+    "adivider": {
+        "path": "adivider/index.tsx",
+        "dependencies": []
     }
 }

@@ -171,7 +171,7 @@ const AHeading: React.FC<AHeadingProps & TextProps> = ({
               ? '#D4D4D8'
               : textColor,
           fontSize: FontSize[size ?? 'xl'],
-          fontWeight: bold ? 'normal' : 'bold',
+          fontWeight: bold === undefined || bold ? 'bold' : 'normal',
           fontStyle: italic ? 'italic' : 'normal',
           textDecorationLine: underline ? 'underline' : 'none',
           backgroundColor: props.highlight,
