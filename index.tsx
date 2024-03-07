@@ -11,3 +11,12 @@ export { AContainer, type AContainerProps } from './src/acontainer'
 export { ABadge, ABadgeText, type ABadgeProps } from './src/abadge'
 export { AText, type ATextProps } from './src/atext'
 export { AHeading, type AHeadingProps } from './src/aheading'
+export {
+  AAvatar,
+  AAvatarFallbackText,
+  AAvatarImage,
+  AAvatarBadge,
+  type AAvatarProps,
+  AAvatarBadgeProps,
+} from './src/aavatar'
+export { ADivider, type ADividerProps } from './src/adivider'
