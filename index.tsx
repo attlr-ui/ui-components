@@ -19,3 +19,4 @@ export {
   type AAvatarProps,
   AAvatarBadgeProps,
 } from './src/aavatar'
+export { ADivider, type ADividerProps } from './src/adivider'
