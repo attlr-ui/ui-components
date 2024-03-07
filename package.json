@@ -64,7 +64,8 @@
     "react": "^18.2.0",
     "react-native": "^0.73.4",
     "react-native-svg": "^15.0.0",
-    "lucide-react-native": "^0.344.0"
+    "lucide-react-native": "^0.344.0",
+    "expo-image": "^1.10.6"
   },
   "dependencies": {
     "expo-linear-gradient": "^12.7.2"
