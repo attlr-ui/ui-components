@@ -76,7 +76,7 @@ const AAvatar: React.FC<AAvatarProps & ViewProps> = ({
           {
             width: avatarSizes[size ?? 'md'],
             height: avatarSizes[size ?? 'md'],
-            backgroundColor: bg ? bg : 'gray',
+            backgroundColor: bg ?? 'gray',
             borderRadius: avatarBorderRadius[borderRadius ?? 'md'],
           },
           {
@@ -210,6 +210,7 @@ const styles = StyleSheet.create({
 AAvatar.displayName = 'AAvatar'
 AAvatarFallbackText.displayName = 'AAvatarFallbackText'
 AAvatarImage.displayName = 'AAvatarImage'
+AAvatarBadge.displayName = 'AAvatarBadge'
 
 const fallbackTextFormat = (name: string): string => {
   if (name && name.length > 2 && name.includes(' ')) {
