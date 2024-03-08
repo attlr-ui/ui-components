@@ -28,3 +28,4 @@ export {
   type RadioOptionProps,
   type RadioProps,
 } from './src/aradio'
+export { ASwitch, type ASwitchProps } from './src/aswitch'

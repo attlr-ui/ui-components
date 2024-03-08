@@ -60,5 +60,9 @@
     "aradio": {
         "path": "aradio/index.tsx",
         "dependencies": []
+    },
+    "aswitch": {
+        "path": "aswitch/index.tsx",
+        "dependencies": []
     }
 }
