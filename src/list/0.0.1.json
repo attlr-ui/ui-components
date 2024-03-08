@@ -42,5 +42,11 @@
     "adivider": {
         "path": "adivider/index.tsx",
         "dependencies": []
+    },
+    "acheckbox": {
+        "path": "acheckbox/index.tsx",
+        "dependencies": [
+            "lucide-react-native"
+        ]
     }
 }
