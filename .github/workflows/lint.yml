@@ -17,5 +17,5 @@ jobs:
               with:
                   node-version: 20
 
-            - run: npm install --no-frozen-lockfile
+            - run: npm install --no-frozen-lockfile --force
             - run: npm run lint

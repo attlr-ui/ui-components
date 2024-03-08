@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-      - run: npm install --no-frozen-lockfile
+      - run: npm install --no-frozen-lockfile --force
       - run: npm ci
       - run: npm run lint
 
