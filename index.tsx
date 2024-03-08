@@ -21,3 +21,4 @@ export {
 } from './src/aavatar'
 export { ADivider, type ADividerProps } from './src/adivider'
 export { ACheckbox, type ACheckboxProps } from './src/acheckbox'
+export { ABox, type ABoxProps } from './src/abox'
