@@ -1,4 +1,10 @@
-import { useState, createContext, useContext, useMemo, memo } from 'react'
+import React, {
+  useState,
+  createContext,
+  useContext,
+  useMemo,
+  memo,
+} from 'react'
 import { View, Pressable, ViewStyle, type ViewProps } from 'react-native'
 
 interface ARadioStyleProps {
@@ -28,13 +34,10 @@ const RadioContext = createContext<{
   setValue: (value: string) => void
   styles: ARadioStyleProps
   value?: string
-}>(
-  {} as {
-    setValue: (value: string) => void
-    styles: ARadioStyleProps
-    value?: string
-  }
-)
+}>({
+  setValue: () => {},
+  styles: {},
+})
 
 /**
  * ARadioGroup is a component that is used to get the user's choice.
@@ -82,12 +85,15 @@ const ARadioGroup = (props: RadioProps & ViewProps): React.JSX.Element => {
   } = props
   const [selectedValue, setSelectedValue] = useState(value)
 
-  const handleOnChange = (value: string) => {
+  const handleOnChange = (value: string): void => {
     setSelectedValue(value)
     onChange?.(value)
   }
 
-  const contextValue = useMemo(() => {
+  const contextValue = useMemo((): {
+    value: string
+    setValue: (value: string) => void
+  } => {
     return {
       value: selectedValue,
       setValue: handleOnChange,
@@ -108,7 +114,7 @@ const ARadioGroup = (props: RadioProps & ViewProps): React.JSX.Element => {
           alignItems: _align,
           ..._containerStyle,
         }}>
-        {options?.map((option, index) => {
+        {options?.map((option, index): React.JSX.Element => {
           const { value, disabled, labelComponent } = option
 
           return (
@@ -136,7 +142,7 @@ const ARadio = (props: RadioOptionProps): React.JSX.Element => {
 
   const isSelected = _value === value
 
-  const handlePress = () => {
+  const handlePress = (): void => {
     setValue(value)
   }
 
@@ -204,7 +210,7 @@ const sizeStyles = {
     width: 32,
     height: 32,
   },
-}
+} as const
 
 ARadioGroup.displayName = 'ARadioGroup'
 ARadio.displayName = 'Radio'
