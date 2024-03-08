@@ -1,7 +1,7 @@
 # This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
 # For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
-name: Node.js Package
+name: Publish to NPM on release
 
 on:
   release:
@@ -26,7 +26,7 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
       - name: Bump version
-        run: npm version patch
+        run: npm version minor
 
       - name: Publish to NPM
         run: npm publish
