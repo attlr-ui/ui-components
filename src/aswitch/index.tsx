@@ -34,9 +34,9 @@ const ASwitch: React.FC<ASwitchProps> = (props) => {
   } = props
   const [selectedValue, setSelectedValue] = useState(value)
 
-  const handleOnChange = (value_: boolean): void => {
+  const handleOnChange = async (value_: boolean): void => {
     setSelectedValue(value_)
-    otherProps.onValueChange?.(value_)
+    await otherProps.onValueChange?.(value_)
   }
 
   return (
