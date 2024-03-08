@@ -1,6 +1,6 @@
 {
   "name": "@attlr/ui-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Attlr UI components for your react native projects",
   "main": "index.tsx",
   "type": "module",
@@ -51,7 +51,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
     "@types/react": "^18.2.61",
-    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
     "eslint": "^8.57.0",
     "eslint-config-standard-with-typescript": "^43.0.1",
     "eslint-plugin-import": "^2.25.2",
@@ -64,7 +64,8 @@
     "react": "^18.2.0",
     "react-native": "^0.73.4",
     "react-native-svg": "^15.0.0",
-    "lucide-react-native": "^0.344.0"
+    "lucide-react-native": "^0.344.0",
+    "expo-image": "^1.10.6"
   },
   "dependencies": {
     "expo-linear-gradient": "^12.7.2"
