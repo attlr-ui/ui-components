@@ -1,9 +1,9 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
-
 name: Publish Pre-Release
 
-on: [push]
+on:
+  push:
+    branches:
+      - prerealease
 
 jobs:
   build:
@@ -14,7 +14,6 @@ jobs:
         with:
           node-version: 20
       - run: npm install --no-frozen-lockfile --force
-      - run: npm ci
       - run: npm run lint
 
   publish-npm:
