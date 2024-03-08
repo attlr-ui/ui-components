@@ -23,4 +23,8 @@ export { ADivider, type ADividerProps } from './src/adivider'
 export { ACheckbox, type ACheckboxProps } from './src/acheckbox'
 export { ABox, type ABoxProps } from './src/abox'
 export { ACenter, type ACenterProps } from './src/acenter'
-export { ARadio, ARadioGroup, RadioOptionProps, RadioProps } from './src/aradio'
+export {
+  ARadioGroup,
+  type RadioOptionProps,
+  type RadioProps,
+} from './src/aradio'
