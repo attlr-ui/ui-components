@@ -56,5 +56,9 @@
     "acenter": {
         "path": "acenter/index.tsx",
         "dependencies": []
+    },
+    "aradio": {
+        "path": "aradio/index.tsx",
+        "dependencies": []
     }
 }
