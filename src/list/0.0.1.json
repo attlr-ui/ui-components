@@ -48,5 +48,13 @@
         "dependencies": [
             "lucide-react-native"
         ]
+    },
+    "abox": {
+        "path": "abox/index.tsx",
+        "dependencies": []
+    },
+    "acenter": {
+        "path": "acenter/index.tsx",
+        "dependencies": []
     }
 }
