@@ -63,7 +63,7 @@ const ACheckbox: React.FC<ACheckboxProps> = (props): React.JSX.Element => {
       <Pressable
         style={[
           styles.checkboxBase,
-          sizeStyles[size || 'md'],
+          sizeStyles[size ?? 'md'],
           { borderRadius: radius ?? 6 },
           style as StyleProp<ViewStyle>,
           checked && styles.checkboxChecked,
@@ -72,7 +72,7 @@ const ACheckbox: React.FC<ACheckboxProps> = (props): React.JSX.Element => {
         {...otherProps}>
         {checked && (
           <Check
-            size={sizeStyles[size || 'md'].width}
+            size={sizeStyles[size ?? 'md'].width}
             color={color}
             style={_checkStyle}
           />

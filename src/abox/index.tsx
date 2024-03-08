@@ -1,5 +1,5 @@
 import React from 'react'
-import { type StyleProp, StyleSheet, View, ViewProps } from 'react-native'
+import { View, ViewProps } from 'react-native'
 
 interface ABoxProps extends ViewProps {
   bg?: string
