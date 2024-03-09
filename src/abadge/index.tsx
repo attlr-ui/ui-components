@@ -57,7 +57,7 @@ const BadgeContext: React.Context<ABadgeProps> =
 const ABadge: React.FC<
   ABadgeProps & {
     children: React.ReactNode
-    style: StyleProp<ViewStyle>
+    style?: StyleProp<ViewStyle>
   }
 > = ({
   children,
@@ -65,7 +65,7 @@ const ABadge: React.FC<
   ...props
 }: ABadgeProps & {
   children: React.ReactNode
-  style: StyleProp<ViewStyle>
+  style?: StyleProp<ViewStyle>
 }): React.JSX.Element => {
   return (
     <BadgeContext.Provider value={{ ...props }}>

@@ -19,7 +19,7 @@ interface ARadioStyleProps {
 }
 
 interface RadioProps {
-  value: string
+  value?: string
   options?: RadioOptionProps[]
   onChange?: (value: string) => void
   gap?: number
@@ -91,7 +91,7 @@ const ARadioGroup = (props: RadioProps & ViewProps): React.JSX.Element => {
   }
 
   const contextValue = useMemo((): {
-    value: string
+    value?: string
     setValue: (value: string) => void
   } => {
     return {
