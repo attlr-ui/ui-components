@@ -21,8 +21,7 @@
     "target": "esnext",
     "outDir": "./dist/",
     "allowJs": true,
-    "declaration": true,
-    "declarationMap": true
+    "declaration": true
   },
   "include": ["src", "index.tsx"]
 }
