@@ -23,6 +23,12 @@ jobs:
       - name: Install dependencies
         run: npm install --no-frozen-lockfile --force && npm run lint
 
+      - name: Clean Git working directory
+        run: |
+          git add . 
+          git commit -m "chore: pre-release" 
+          git push origin prerelease
+
       - name: Run npm version prerelease
         run: npm version prepatch --preid=alpha
 
@@ -30,3 +36,4 @@ jobs:
         run: npm publish --access public --tag next
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          GIT_TOKEN: ${{secrets.GITHUB_TOKEN}}
