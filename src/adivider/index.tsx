@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, type StyleProp, ViewStyle } from 'react-native'
+import { View, StyleSheet, type StyleProp, type ViewStyle } from 'react-native'
 
 interface ADividerProps {
   //   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -53,7 +53,7 @@ const ADivider = (props: ADividerProps): React.JSX.Element => {
     bg = '#D4D4D8',
     thickness = 1,
     style,
-    vertical = false,
+    vertical = false
   } = props
 
   return (
@@ -66,10 +66,10 @@ const ADivider = (props: ADividerProps): React.JSX.Element => {
           borderColor: bg,
           borderWidth: thickness,
           borderRadius:
-            borderRadius === 'full' ? 9999 : borderRadius === 'md' ? 8 : 4,
+            borderRadius === 'full' ? 9999 : borderRadius === 'md' ? 8 : 4
         },
         // styles[size],
-        style,
+        style
       ]}
     />
   )
@@ -78,12 +78,12 @@ const ADivider = (props: ADividerProps): React.JSX.Element => {
 const styles = StyleSheet.create({
   horizontalDivider: {
     width: '100%',
-    height: 1,
+    height: 1
   },
   verticalDivider: {
     height: '100%',
-    width: 1,
-  },
+    width: 1
+  }
   // size
   // xs: {
   //     width: '100%',

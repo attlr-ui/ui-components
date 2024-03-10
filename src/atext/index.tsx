@@ -1,10 +1,10 @@
 import React from 'react'
 import {
-  AnimatableNumericValue,
-  ColorValue,
-  DimensionValue,
+  type AnimatableNumericValue,
+  type ColorValue,
+  type DimensionValue,
   Text,
-  TextProps,
+  type TextProps
 } from 'react-native'
 
 interface ATextProps {
@@ -49,16 +49,16 @@ interface ATextProps {
    * @default "md"
    * **/
   size?:
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl'
-    | '2xl'
-    | '3xl'
-    | '4xl'
-    | '5xl'
-    | '6xl'
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl'
+  | '6xl'
   /**
    * Padding all around the text.
    **/
@@ -131,7 +131,7 @@ interface ATextProps {
 
 /**
  * AText is a component used to render text.
- * 
+ *
  * @example
  *  <AText
           textColor='secondary'
@@ -185,21 +185,21 @@ const AText: React.FC<ATextProps & TextProps> = ({
             textColor === 'primary'
               ? '#09090B'
               : textColor === 'secondary'
-              ? '#fff'
-              : textColor === 'ghost'
-              ? '#D4D4D8'
-              : textColor,
+                ? '#fff'
+                : textColor === 'ghost'
+                  ? '#D4D4D8'
+                  : textColor,
           fontSize: FontSize[size ?? FontSize.md],
           fontWeight: bold ? 'bold' : 'normal',
           fontStyle: italic ? 'italic' : 'normal',
           textDecorationLine: underline
             ? 'underline'
             : strikeThrough
-            ? 'line-through'
-            : 'none',
+              ? 'line-through'
+              : 'none',
           lineHeight: sub ? 16 : 20,
           backgroundColor: highlight,
-          overflow: isTruncated ? 'hidden' : 'visible',
+          overflow: isTruncated ? 'hidden' : 'visible'
         },
         {
           marginTop: mt,
@@ -218,16 +218,16 @@ const AText: React.FC<ATextProps & TextProps> = ({
           paddingTop: pt,
           borderRadius,
           borderWidth,
-          borderColor,
+          borderColor
         },
-        props.style,
+        props.style
       ]}>
       {children}
     </Text>
   )
 }
 
-const FontSize: { [key: string]: number } = {
+const FontSize: Record<string, number> = {
   xs: 12,
   sm: 14,
   md: 16,
@@ -237,7 +237,7 @@ const FontSize: { [key: string]: number } = {
   '3xl': 30,
   '4xl': 36,
   '5xl': 48,
-  '6xl': 64,
+  '6xl': 64
 }
 
 AText.displayName = 'AText'
@@ -255,7 +255,7 @@ AText.defaultProps = {
   size: 'md',
   p: 1,
   m: 1,
-  borderRadius: 1,
+  borderRadius: 1
 }
 
-export { AText, ATextProps }
+export { AText, type ATextProps }

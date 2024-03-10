@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, ViewProps } from 'react-native'
+import { View, type ViewProps } from 'react-native'
 
 interface ABoxProps extends ViewProps {
   bg?: string
@@ -88,9 +88,9 @@ const ABox: React.FC<ABoxProps> = (props): React.JSX.Element => {
           marginVertical: my,
           paddingHorizontal: px,
           marginHorizontal: mx,
-          shadowOffset,
+          shadowOffset
         },
-        style,
+        style
       ]}>
       {props.children}
     </View>

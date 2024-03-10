@@ -46,9 +46,9 @@ const ASwitch: React.FC<ASwitchProps> = (props) => {
           flexDirection: direction ?? 'row',
           alignItems: align ?? 'center',
           justifyContent: justifyContent ?? 'flex-start',
-          gap,
+          gap
         },
-        _containerStyle,
+        _containerStyle
       ]}>
       <Switch
         accessibilityHint="Switch"
@@ -57,16 +57,16 @@ const ASwitch: React.FC<ASwitchProps> = (props) => {
         style={{
           transform: [
             { scaleX: sizes[size ?? 'md'] },
-            { scaleY: sizes[size ?? 'md'] },
+            { scaleY: sizes[size ?? 'md'] }
           ],
-          opacity: otherProps.disabled ? 0.5 : 1,
+          opacity: otherProps.disabled ? 0.5 : 1
         }}
         value={selectedValue}
         onValueChange={handleOnChange}
         thumbColor={_switch?.thumbColor ?? '#09090B'}
         trackColor={{
           false: _switch?.trackColorFalse ?? '#D1D1D6',
-          true: _switch?.trackColorTrue ?? '#D1D1D6',
+          true: _switch?.trackColorTrue ?? '#D1D1D6'
         }}
       />
       {labelComponent}
@@ -79,7 +79,7 @@ const sizes = {
   sm: 0.9,
   md: 1.0,
   lg: 1.1,
-  xl: 1.2,
+  xl: 1.2
 }
 
 ASwitch.displayName = 'ASwitch'

@@ -3,9 +3,9 @@ import {
   View,
   Text,
   StyleSheet,
-  ViewStyle,
-  StyleProp,
-  TextProps,
+  type ViewStyle,
+  type StyleProp,
+  type TextProps
 } from 'react-native'
 
 interface ABadgeProps {
@@ -38,7 +38,7 @@ const BadgeContext: React.Context<ABadgeProps> =
 
 /**
     *   A badge component that is used to display a small amount of information
-    *  @example 
+    *  @example
     * <ABadge
             borderRadius='lg'
             // size='lg'
@@ -48,17 +48,17 @@ const BadgeContext: React.Context<ABadgeProps> =
         >
             <Star size={14} color="white" />
             <ABadgeText>Axole Maranjana</ABadgeText>
-        </ABadge>   
+        </ABadge>
     * @param {ABadgeProps} props
     * @param {React.ReactNode} children
     * @param {StyleProp<ViewStyle>} style
     * @returns {React.JSX.Element}
         **/
 const ABadge: React.FC<
-  ABadgeProps & {
-    children: React.ReactNode
-    style?: StyleProp<ViewStyle>
-  }
+ABadgeProps & {
+  children: React.ReactNode
+  style?: StyleProp<ViewStyle>
+}
 > = ({
   children,
   style,
@@ -84,8 +84,8 @@ const ABadge: React.FC<
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: props.gap ?? 4,
-          },
+            gap: props.gap ?? 4
+          }
         ]}>
         {children}
       </View>
@@ -113,7 +113,7 @@ const ABadgeText: React.FC<TextProps> = ({
         badgeTextStyles[badgeProps.variant ?? 'info'],
         badgeTextStyles[badgeProps.size ?? 'sm'],
         badgeProps.fill !== 'outline' && { color: 'white' },
-        props.style,
+        props.style
       ]}
     />
   )
@@ -121,17 +121,17 @@ const ABadgeText: React.FC<TextProps> = ({
 
 const fillStyles = (
   variant: ABadgeProps['variant']
-): { [key: string]: { [key: string]: string | number } } =>
+): Record<string, Record<string, string | number>> =>
   StyleSheet.create({
     solid: {
       backgroundColor:
         variant === 'success'
           ? 'green'
           : variant === 'warning'
-          ? 'yellow'
-          : variant === 'error'
-          ? 'red'
-          : 'black',
+            ? 'yellow'
+            : variant === 'error'
+              ? 'red'
+              : 'black'
     },
     outline: {
       borderWidth: 1,
@@ -139,95 +139,95 @@ const fillStyles = (
         variant === 'success'
           ? 'green'
           : variant === 'warning'
-          ? 'yellow'
-          : variant === 'error'
-          ? 'red'
-          : 'black',
-      backgroundColor: 'transparent',
+            ? 'yellow'
+            : variant === 'error'
+              ? 'red'
+              : 'black',
+      backgroundColor: 'transparent'
     },
     ghost: {
-      backgroundColor: 'transparent',
-    },
+      backgroundColor: 'transparent'
+    }
   })
 
 const badgeStyles = StyleSheet.create({
   badge: {
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 3,
+    borderRadius: 3
   },
   sm: {
     fontSize: 12,
     paddingVertical: 4,
-    paddingHorizontal: 8,
+    paddingHorizontal: 8
   },
   md: {
     fontSize: 14,
     paddingVertical: 6,
-    paddingHorizontal: 10,
+    paddingHorizontal: 10
   },
   lg: {
     fontSize: 16,
     paddingVertical: 8,
-    paddingHorizontal: 12,
+    paddingHorizontal: 12
   },
   success: {
-    color: 'green',
+    color: 'green'
   },
   warning: {
-    color: 'yellow',
+    color: 'yellow'
   },
   error: {
-    color: 'red',
+    color: 'red'
   },
   info: {
-    color: 'black',
-  },
+    color: 'black'
+  }
 })
 
 const boarderRadius = StyleSheet.create({
   xs: {
-    borderRadius: 3,
+    borderRadius: 3
   },
   sm: {
-    borderRadius: 6,
+    borderRadius: 6
   },
   md: {
-    borderRadius: 10,
+    borderRadius: 10
   },
   lg: {
-    borderRadius: 15,
-  },
+    borderRadius: 15
+  }
 })
 
 const badgeTextStyles = StyleSheet.create({
   badge: {
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   sm: {
-    fontSize: 12,
+    fontSize: 12
   },
   md: {
-    fontSize: 14,
+    fontSize: 14
   },
   lg: {
-    fontSize: 16,
+    fontSize: 16
   },
   success: {
-    color: 'green',
+    color: 'green'
   },
   warning: {
-    color: 'yellow',
+    color: 'yellow'
   },
   error: {
-    color: 'red',
+    color: 'red'
   },
   info: {
-    color: 'black',
-  },
+    color: 'black'
+  }
 })
 
 ABadge.displayName = 'ABadge'
 ABadgeText.displayName = 'ABadgeText'
 
-export { ABadge, ABadgeProps, ABadgeText }
+export { ABadge, type ABadgeProps, ABadgeText }

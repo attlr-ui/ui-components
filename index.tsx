@@ -2,7 +2,7 @@ export {
   AButton,
   type AButtonProps,
   AButtonText,
-  type AButtonTextProps,
+  type AButtonTextProps
 } from './src/abutton'
 export { AInput, type AInputProps } from './src/ainput'
 export { AvStack, type AvStackProps } from './src/avstack'
@@ -17,7 +17,7 @@ export {
   AAvatarImage,
   AAvatarBadge,
   type AAvatarProps,
-  AAvatarBadgeProps,
+  type AAvatarBadgeProps
 } from './src/aavatar'
 export { ADivider, type ADividerProps } from './src/adivider'
 export { ACheckbox, type ACheckboxProps } from './src/acheckbox'
@@ -26,6 +26,6 @@ export { ACenter, type ACenterProps } from './src/acenter'
 export {
   ARadioGroup,
   type RadioOptionProps,
-  type RadioProps,
+  type RadioProps
 } from './src/aradio'
 export { ASwitch, type ASwitchProps } from './src/aswitch'

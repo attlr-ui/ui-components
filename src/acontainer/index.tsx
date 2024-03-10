@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import React, { type JSX } from 'react'
-import { View, StyleSheet, ViewStyle } from 'react-native'
-import { LinearGradient, LinearGradientProps } from 'expo-linear-gradient'
+import { View, StyleSheet, type ViewStyle } from 'react-native'
+import { LinearGradient, type LinearGradientProps } from 'expo-linear-gradient'
 
 interface AContainerProps {
   /**
@@ -19,13 +19,13 @@ interface AContainerProps {
    **/
   height: number
   radiusEffect:
-    | 'topLeft'
-    | 'topRight'
-    | 'bottomLeft'
-    | 'bottomRight'
-    | 'top'
-    | 'bottom'
-    | 'all'
+  | 'topLeft'
+  | 'topRight'
+  | 'bottomLeft'
+  | 'bottomRight'
+  | 'top'
+  | 'bottom'
+  | 'all'
 
   /**
    *  Style of the linear gradient container
@@ -77,7 +77,7 @@ const AContainer = (props: AContainerProps): JSX.Element => {
     justifyContent,
     alignItems,
     flexDirection,
-    flex,
+    flex
   } = props
   return (
     <View
@@ -86,16 +86,16 @@ const AContainer = (props: AContainerProps): JSX.Element => {
           position: 'relative',
           backgroundColor: 'transparent',
           minHeight: height ?? 200,
-          width: '100%',
+          width: '100%'
         },
-        style,
+        style
       ]}>
       <LinearGradient
         {...linearGradientProps}
         colors={
           linearGradientProps?.colors ?? [
-            topColor ? topColor : '#269B71',
-            bottomColor ? bottomColor : '#008069',
+            topColor || '#269B71',
+            bottomColor || '#008069'
           ]
         }
         locations={linearGradientProps?.locations ?? [topColorWeight, 0.8]}
@@ -106,8 +106,8 @@ const AContainer = (props: AContainerProps): JSX.Element => {
             width: '100%',
             position: 'absolute',
             transform: [{ scale: scale ?? 1 }],
-            ...linearGradientStyle,
-          },
+            ...linearGradientStyle
+          }
         ]}
       />
 
@@ -121,9 +121,9 @@ const AContainer = (props: AContainerProps): JSX.Element => {
             alignItems,
             flexDirection,
             flex,
-            padding: padding ?? 0,
+            padding: padding ?? 0
           },
-          contentContainerStyle,
+          contentContainerStyle
         ]}>
         {children}
       </View>
@@ -136,46 +136,46 @@ const radiusStyles = StyleSheet.create<any>({
     borderTopLeftRadius: 200,
     borderTopRightRadius: 50,
     borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomRightRadius: 20
   },
   topRight: {
     borderTopLeftRadius: 50,
     borderTopRightRadius: 200,
     borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomRightRadius: 20
   },
   bottomLeft: {
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     borderBottomLeftRadius: 200,
-    borderBottomRightRadius: 50,
+    borderBottomRightRadius: 50
   },
   bottomRight: {
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     borderBottomLeftRadius: 50,
-    borderBottomRightRadius: 200,
+    borderBottomRightRadius: 200
   },
   top: {
     borderTopLeftRadius: 200,
     borderTopRightRadius: 200,
     borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomRightRadius: 20
   },
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   bottom: (height: number) => ({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     borderBottomLeftRadius: height,
-    borderBottomRightRadius: height,
+    borderBottomRightRadius: height
   }),
   all: {
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-  },
+    borderBottomRightRadius: 20
+  }
 })
 
 AContainer.name = 'AContainer'
-export { AContainer, AContainerProps }
+export { AContainer, type AContainerProps }

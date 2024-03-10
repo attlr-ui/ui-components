@@ -5,22 +5,22 @@ import {
   StyleSheet,
   type TextProps,
   type ViewProps,
-  type StyleProp,
+  type StyleProp
 } from 'react-native'
-import { Image, ImageProps } from 'expo-image'
+import { Image, type ImageProps } from 'expo-image'
 
 interface AAvatarProps {
   size?:
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl'
-    | '2xl'
-    | '3xl'
-    | '4xl'
-    | '5xl'
-    | '6xl'
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl'
+  | '6xl'
   borderRadius?: 'xs' | 'sm' | 'md' | 'lg' | 'full'
   _text?: StyleProp<TextProps>
   _badge?: StyleProp<ViewProps>
@@ -28,12 +28,12 @@ interface AAvatarProps {
 }
 
 const AAvatarContext: React.Context<
-  AAvatarProps & {
-    IMAGE_SOURCE: boolean
-    updateImageSource?: (isAvailable: boolean) => void
-  }
+AAvatarProps & {
+  IMAGE_SOURCE: boolean
+  updateImageSource?: (isAvailable: boolean) => void
+}
 > = React.createContext<AAvatarProps & { IMAGE_SOURCE: boolean }>({
-  IMAGE_SOURCE: false,
+  IMAGE_SOURCE: false
 })
 
 const AAvatar: React.FC<AAvatarProps & ViewProps> = ({
@@ -47,8 +47,8 @@ const AAvatar: React.FC<AAvatarProps & ViewProps> = ({
   const [imageSource, setImageSource] = React.useState(false)
 
   const checkImageSource = React.useCallback(():
-    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-    | undefined => {
+  | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+  | undefined => {
     return React.Children.toArray(children).find(
       (child) => (child as any).type === AAvatarImage
     ) as React.ReactElement<any, string | React.JSXElementConstructor<any>>
@@ -66,9 +66,9 @@ const AAvatar: React.FC<AAvatarProps & ViewProps> = ({
         size,
         borderRadius,
         IMAGE_SOURCE: imageSource,
-        updateImageSource(isAvailable: boolean) {
+        updateImageSource (isAvailable: boolean) {
           setImageSource(isAvailable)
-        },
+        }
       }}>
       <View
         {...props}
@@ -77,14 +77,14 @@ const AAvatar: React.FC<AAvatarProps & ViewProps> = ({
             width: avatarSizes[size ?? 'md'],
             height: avatarSizes[size ?? 'md'],
             backgroundColor: bg ?? 'gray',
-            borderRadius: avatarBorderRadius[borderRadius ?? 'md'],
+            borderRadius: avatarBorderRadius[borderRadius ?? 'md']
           },
           {
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center',
+            alignItems: 'center'
           },
-          style,
+          style
         ]}>
         {children}
       </View>
@@ -97,7 +97,7 @@ const AAvatar: React.FC<AAvatarProps & ViewProps> = ({
  * **/
 const AAvatarFallbackText: React.FC<TextProps> = ({
   children,
-  style,
+  style
 }): React.JSX.Element => {
   const { IMAGE_SOURCE } = React.useContext(AAvatarContext)
 
@@ -145,9 +145,9 @@ const AAvatarImage: React.FC<ImageProps> = ({
         {
           width: '100%',
           height: '100%',
-          borderRadius: 100,
+          borderRadius: 100
         },
-        style,
+        style
       ]}
     />
   )
@@ -185,15 +185,15 @@ const AAvatarBadge: React.FC<AAvatarBadgeProps> = (
         avatarBadgeStyle[props.size ?? 'md'],
         {
           backgroundColor: props.bg ?? '#D4D4D8',
-          borderRadius: props.round ?? 100,
+          borderRadius: props.round ?? 100
         },
-        props._badgeContainer,
+        props._badgeContainer
       ]}>
       <View
         style={[
           avatarBadgeStyle.dot,
           avatarBadgeStyle[props.status ?? 'online'],
-          props._badge,
+          props._badge
         ]}
       />
     </View>
@@ -203,8 +203,8 @@ const AAvatarBadge: React.FC<AAvatarBadgeProps> = (
 const styles = StyleSheet.create({
   fallbackText: {
     color: 'black',
-    fontSize: 20,
-  },
+    fontSize: 20
+  }
 })
 
 AAvatar.displayName = 'AAvatar'
@@ -222,7 +222,7 @@ const fallbackTextFormat = (name: string): string => {
   return 'NN'
 }
 
-const avatarSizes: { [key: string]: number } = {
+const avatarSizes: Record<string, number> = {
   xs: 20,
   sm: 24,
   md: 50,
@@ -232,15 +232,15 @@ const avatarSizes: { [key: string]: number } = {
   '3xl': 140,
   '4xl': 180,
   '5xl': 200,
-  '6xl': 210,
+  '6xl': 210
 } as const
 
-const avatarBorderRadius: { [key: string]: number } = {
+const avatarBorderRadius: Record<string, number> = {
   xs: 2,
   sm: 4,
   md: 8,
   lg: 12,
-  full: 100,
+  full: 100
 } as const
 
 const avatarBadgeStyle = StyleSheet.create({
@@ -248,83 +248,83 @@ const avatarBadgeStyle = StyleSheet.create({
     position: 'absolute',
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   dot: {
     width: '75%',
     height: '75%',
     borderRadius: 100,
-    backgroundColor: 'green',
+    backgroundColor: 'green'
   },
   online: {
     width: '75%',
     height: '75%',
     borderRadius: 100,
-    backgroundColor: 'green',
+    backgroundColor: 'green'
   },
   offline: {
     width: '75%',
     height: '75%',
     borderRadius: 100,
-    backgroundColor: 'gray',
+    backgroundColor: 'gray'
   },
   busy: {
     width: '75%',
     height: '75%',
     borderRadius: 100,
-    backgroundColor: 'red',
+    backgroundColor: 'red'
   },
   away: {
     width: '75%',
     height: '75%',
     borderRadius: 100,
-    backgroundColor: 'yellow',
+    backgroundColor: 'yellow'
   },
   // position
   'top-right': {
     top: 0,
-    right: 0,
+    right: 0
   },
   'top-left': {
     top: 0,
-    left: 0,
+    left: 0
   },
   'bottom-right': {
     bottom: 0,
-    right: 0,
+    right: 0
   },
   'bottom-left': {
     bottom: 0,
-    left: 0,
+    left: 0
   },
   // size
   xs: {
     width: 10,
-    height: 10,
+    height: 10
   },
   sm: {
     width: 12,
-    height: 12,
+    height: 12
   },
   md: {
     width: 14,
-    height: 14,
+    height: 14
   },
   lg: {
     width: 16,
-    height: 16,
+    height: 16
   },
   xl: {
     width: 18,
-    height: 18,
-  },
+    height: 18
+  }
 })
 
 export {
   AAvatar,
-  AAvatarProps,
+  type AAvatarProps,
   AAvatarFallbackText,
   AAvatarImage,
   AAvatarBadge,
-  AAvatarBadgeProps,
+  type AAvatarBadgeProps
 }
