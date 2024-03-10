@@ -26,8 +26,7 @@ jobs:
       - name: Clean Git working directory
         run: |
           git add . 
-          git commit -m "chore: pre-release" 
-          git push origin prerelease
+          git commit -m "chore: pre-release"
 
       - name: Run npm version prerelease
         run: npm version prepatch --preid=alpha
