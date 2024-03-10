@@ -6,18 +6,7 @@ on:
       - prerealease
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - run: npm install --no-frozen-lockfile --force
-      - run: npm run lint
-
   publish-npm:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -31,12 +20,13 @@ jobs:
           git config --global user.email "axolemaranjana4@gmail.com"
           git config --global user.name "Axole Maranjana"
 
+      - name: Install dependencies
+        run: npm install --no-frozen-lockfile --force && npm run lint
+
       - name: Run npm version prerelease
         run: npm version prepatch --preid=alpha
 
-      - run: npm run lint
-
-      - name: Publish to GitHub Packages
+      - name: Publish to NPM
         run: npm publish --access public --tag next
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
