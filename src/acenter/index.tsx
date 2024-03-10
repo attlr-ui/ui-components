@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, ViewProps } from 'react-native'
+import { View, type ViewProps } from 'react-native'
 
 interface ACenterProps extends ViewProps {
   bg?: string
@@ -110,13 +110,13 @@ const ACenter: React.FC<ACenterProps> = (props): React.JSX.Element => {
           marginVertical: my,
           paddingHorizontal: px,
           marginHorizontal: mx,
-          shadowOffset,
+          shadowOffset
         },
         style,
         {
           justifyContent: vertical ? 'center' : 'flex-start',
-          alignItems: horizontal ? 'center' : 'flex-start',
-        },
+          alignItems: horizontal ? 'center' : 'flex-start'
+        }
       ]}>
       {props.children}
     </View>

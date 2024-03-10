@@ -16,7 +16,7 @@ Attlr UI Components is a collection of reusable components for building react na
 ## Installation
 
 ```sh
-npm install @attlr-ui/ui-components
+npm install @attlr/ui-components
 ```
 
 We recommend using our [CLI](https://www.npmjs.com/package/@attlr/cli) to install the components you only need.

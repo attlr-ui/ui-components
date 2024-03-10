@@ -1,10 +1,10 @@
 import React from 'react'
 import {
-  AnimatableNumericValue,
-  ColorValue,
-  DimensionValue,
+  type AnimatableNumericValue,
+  type ColorValue,
+  type DimensionValue,
   Text,
-  TextProps,
+  type TextProps
 } from 'react-native'
 
 interface AHeadingProps {
@@ -34,16 +34,16 @@ interface AHeadingProps {
    * @default "md"
    * **/
   size?:
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl'
-    | '2xl'
-    | '3xl'
-    | '4xl'
-    | '5xl'
-    | '6xl'
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl'
+  | '6xl'
   /**
    * Padding all around the text.
    **/
@@ -166,15 +166,15 @@ const AHeading: React.FC<AHeadingProps & TextProps> = ({
             textColor === 'primary'
               ? '#09090B'
               : textColor === 'secondary'
-              ? '#fff'
-              : textColor === 'ghost'
-              ? '#D4D4D8'
-              : textColor,
+                ? '#fff'
+                : textColor === 'ghost'
+                  ? '#D4D4D8'
+                  : textColor,
           fontSize: FontSize[size ?? 'xl'],
           fontWeight: bold === undefined || bold ? 'bold' : 'normal',
           fontStyle: italic ? 'italic' : 'normal',
           textDecorationLine: underline ? 'underline' : 'none',
-          backgroundColor: props.highlight,
+          backgroundColor: props.highlight
         },
         {
           marginTop: mt,
@@ -193,16 +193,16 @@ const AHeading: React.FC<AHeadingProps & TextProps> = ({
           paddingTop: pt,
           borderRadius,
           borderWidth,
-          borderColor,
+          borderColor
         },
-        props.style,
+        props.style
       ]}>
       {children}
     </Text>
   )
 }
 
-const FontSize: { [key: string]: number } = {
+const FontSize: Record<string, number> = {
   xs: 20,
   sm: 22,
   md: 24,
@@ -212,7 +212,7 @@ const FontSize: { [key: string]: number } = {
   '3xl': 32,
   '4xl': 36,
   '5xl': 48,
-  '6xl': 64,
+  '6xl': 64
 }
 
 AHeading.displayName = 'AHeading'
@@ -227,7 +227,7 @@ AHeading.defaultProps = {
   size: 'xl',
   p: 1,
   m: 1,
-  borderRadius: 1,
+  borderRadius: 1
 }
 
-export { AHeading, AHeadingProps }
+export { AHeading, type AHeadingProps }

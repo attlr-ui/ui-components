@@ -3,9 +3,9 @@ import React, {
   createContext,
   useContext,
   useMemo,
-  memo,
+  memo
 } from 'react'
-import { View, Pressable, ViewStyle, type ViewProps } from 'react-native'
+import { View, Pressable, type ViewStyle, type ViewProps } from 'react-native'
 
 interface ARadioStyleProps {
   gap?: number
@@ -19,7 +19,7 @@ interface ARadioStyleProps {
 }
 
 interface RadioProps {
-  value: string
+  value?: string
   options?: RadioOptionProps[]
   onChange?: (value: string) => void
   gap?: number
@@ -35,15 +35,15 @@ const RadioContext = createContext<{
   styles: ARadioStyleProps
   value?: string
 }>({
-  setValue: () => {},
-  styles: {},
-})
+      setValue: () => {},
+      styles: {}
+    })
 
 /**
  * ARadioGroup is a component that is used to get the user's choice.
- * 
- * @param RadioProps & ViewProps 
- * 
+ *
+ * @param RadioProps & ViewProps
+ *
  * @example
  * <ARadioGroup
           options={[
@@ -66,9 +66,9 @@ const RadioContext = createContext<{
           }}
           _align='center'
         />
- * 
+ *
  * @returns React.JSX.Element
- * 
+ *
  * @link see more: [ARadioGroup](https://docs.attlr.org.za/components/ARadioGroup)
  */
 const ARadioGroup = (props: RadioProps & ViewProps): React.JSX.Element => {
@@ -91,12 +91,12 @@ const ARadioGroup = (props: RadioProps & ViewProps): React.JSX.Element => {
   }
 
   const contextValue = useMemo((): {
-    value: string
+    value?: string
     setValue: (value: string) => void
   } => {
     return {
       value: selectedValue,
-      setValue: handleOnChange,
+      setValue: handleOnChange
     }
   }, [selectedValue])
 
@@ -104,7 +104,7 @@ const ARadioGroup = (props: RadioProps & ViewProps): React.JSX.Element => {
     <RadioContext.Provider
       value={{
         ...contextValue,
-        styles: _radio,
+        styles: _radio
       }}>
       <View
         {...otherProps}
@@ -112,7 +112,7 @@ const ARadioGroup = (props: RadioProps & ViewProps): React.JSX.Element => {
           gap,
           flexDirection: direction,
           alignItems: _align,
-          ..._containerStyle,
+          ..._containerStyle
         }}>
         {options?.map((option, index): React.JSX.Element => {
           const { value, disabled, labelComponent } = option
@@ -153,7 +153,7 @@ const ARadio = (props: RadioOptionProps): React.JSX.Element => {
         alignItems: styles.align,
         justifyContent: styles.justifyContent,
         opacity: disabled ? 0.5 : 1,
-        gap: styles.gap ?? 10,
+        gap: styles.gap ?? 10
       }}>
       <Pressable
         onPress={handlePress}
@@ -165,10 +165,10 @@ const ARadio = (props: RadioOptionProps): React.JSX.Element => {
             borderWidth: 3,
             borderColor: '#09090B',
             justifyContent: 'center',
-            alignItems: 'center',
+            alignItems: 'center'
           },
           styles.style,
-          disabled && styles.disabledStyle,
+          disabled && styles.disabledStyle
         ]}>
         {isSelected && (
           <View
@@ -177,9 +177,9 @@ const ARadio = (props: RadioOptionProps): React.JSX.Element => {
                 width: sizeStyles[styles.size ?? 'md'].width / 2,
                 height: sizeStyles[styles.size ?? 'md'].height / 2,
                 borderRadius: 100,
-                backgroundColor: '#09090B',
+                backgroundColor: '#09090B'
               },
-              styles.selectedStyle,
+              styles.selectedStyle
             ]}
           />
         )}
@@ -192,24 +192,24 @@ const ARadio = (props: RadioOptionProps): React.JSX.Element => {
 const sizeStyles = {
   xs: {
     width: 16,
-    height: 16,
+    height: 16
   },
   sm: {
     width: 20,
-    height: 20,
+    height: 20
   },
   md: {
     width: 24,
-    height: 24,
+    height: 24
   },
   lg: {
     width: 28,
-    height: 28,
+    height: 28
   },
   xl: {
     width: 32,
-    height: 32,
-  },
+    height: 32
+  }
 } as const
 
 ARadioGroup.displayName = 'ARadioGroup'
@@ -220,5 +220,5 @@ const MemoARadioGroup = memo(ARadioGroup)
 export {
   MemoARadioGroup as ARadioGroup,
   type RadioProps,
-  type RadioOptionProps,
+  type RadioOptionProps
 }
