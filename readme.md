@@ -11,6 +11,7 @@ Attlr UI Components is a collection of reusable components for building react na
 [![GitHub issues](https://img.shields.io/github/issues/attlr-ui/ui-components)]
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/attlr-ui/ui-components)]
 [![GitHub license](https://img.shields.io/github/license/attlr-ui/ui-components)]
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fattlr-ui%2Fui-components.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fattlr-ui%2Fui-components?ref=badge_shield)
 
 ## Installation
 
@@ -49,3 +50,7 @@ You can find the documentation [here](https://ui.attlr.org.za/)
 We are open to contributions, get started by reading our [contributing guide](./CONTRIBUTING.md)
 
 Made with ❤️ by [Attlr](https://attlr.org.za)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fattlr-ui%2Fui-components.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fattlr-ui%2Fui-components?ref=badge_large)
