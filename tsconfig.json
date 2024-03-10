@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "noEmit": true,
-    "declaration": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": true,
     "esModuleInterop": true,
@@ -19,6 +17,12 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
-  }
+    "isolatedModules": true,
+    "target": "esnext",
+    "outDir": "./dist/",
+    "allowJs": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": ["src", "index.tsx"]
 }

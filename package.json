@@ -1,23 +1,22 @@
 {
   "name": "@attlr/ui-components",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.0",
   "description": "Attlr UI components for your react native projects",
-  "main": "index.tsx",
+  "main": "./dist/index.js",
   "type": "module",
   "private": false,
   "exports": {
     ".": {
-      "import": "./index.tsx",
-      "require": "./index.tsx",
-      "types": "./index.ts",
-      "default": "./index.tsx"
+      "import": "././dist/index.js",
+      "require": "././dist/index.js",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
-    "./src": null
+    "./dist/src": null
   },
-  "types": "index.ts",
+  "types": "dist/index.d.ts",
   "files": [
-    "index.tsx",
-    "src",
+    "dist/",
     "package.json",
     ".npmrc",
     "license"
@@ -31,7 +30,8 @@
     }
   },
   "scripts": {
-    "lint": "tsc --noEmit && eslint . --ext .ts,.tsx --fix"
+    "lint": " eslint . --ext .ts,.tsx --fix && tsc",
+    "lint:dev": " eslint . --ext .ts,.tsx --fix && tsc"
   },
   "repository": {
     "type": "git",

@@ -10,7 +10,7 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "ignorePatterns": ["node_modules", "*-lock.json"],
+  "ignorePatterns": ["node_modules", "*-lock.json", "dist"],
   "rules": {
     "react/prop-types": 1,
     "react/react-in-jsx-scope": 1,

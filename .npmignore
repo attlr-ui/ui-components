@@ -7,3 +7,5 @@ tsconfig.json
 .prettierrc
 readme.md
 CONTRIBUTING.md
+index.tsx
+src
