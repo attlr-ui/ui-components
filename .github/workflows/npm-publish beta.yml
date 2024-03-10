@@ -34,6 +34,8 @@ jobs:
       - name: Run npm version prerelease
         run: npm version prepatch --preid=alpha
 
+      - run: npm run lint
+
       - name: Publish to GitHub Packages
         run: npm publish --access public --tag next
         env:
