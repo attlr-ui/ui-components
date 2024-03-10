@@ -4,8 +4,8 @@ import {
   type StyleProp,
   StyleSheet,
   View,
-  ViewStyle,
-  FlexStyle,
+  type ViewStyle,
+  type FlexStyle
 } from 'react-native'
 import { Check } from 'lucide-react-native'
 import React from 'react'
@@ -25,7 +25,7 @@ interface ACheckboxProps extends PressableProps {
 
 /**
  * ACheckbox is a component that is used to get the user's choice.
- * @example 
+ * @example
  * <ACheckbox
       label={<AText textColor='primary'>This is a label</AText>}
       checked={!checked}
@@ -57,7 +57,7 @@ const ACheckbox: React.FC<ACheckboxProps> = (props): React.JSX.Element => {
         justifyContent: 'flex-start',
         alignItems: align,
         gap,
-        opacity: otherProps.disabled ? 0.5 : 1,
+        opacity: otherProps.disabled ? 0.5 : 1
       }}>
       {labelPosition === 'left' && label}
       <Pressable
@@ -67,7 +67,7 @@ const ACheckbox: React.FC<ACheckboxProps> = (props): React.JSX.Element => {
           { borderRadius: radius ?? 6 },
           style as StyleProp<ViewStyle>,
           checked && styles.checkboxChecked,
-          checkedStyle,
+          checkedStyle
         ]}
         {...otherProps}>
         {checked && (
@@ -88,37 +88,37 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
-    backgroundColor: 'transparent',
+    backgroundColor: 'transparent'
   },
   checkboxChecked: {
-    backgroundColor: '#09090B',
-  },
+    backgroundColor: '#09090B'
+  }
 })
 
 const sizeStyles = {
   xs: {
     width: 16,
-    height: 16,
+    height: 16
   },
   sm: {
     width: 20,
-    height: 20,
+    height: 20
   },
   md: {
     width: 24,
-    height: 24,
+    height: 24
   },
   lg: {
     width: 28,
-    height: 28,
+    height: 28
   },
   xl: {
     width: 32,
-    height: 32,
-  },
+    height: 32
+  }
 }
 
 ACheckbox.displayName = 'ACheckbox'
 const ACheckboxMemo = React.memo(ACheckbox)
 
-export { ACheckboxMemo as ACheckbox, ACheckboxProps }
+export { ACheckboxMemo as ACheckbox, type ACheckboxProps }

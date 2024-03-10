@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import React from 'react'
-import { FlexStyle, View, ViewProps } from 'react-native'
+import { type FlexStyle, View, type ViewProps } from 'react-native'
 
 interface AhStackProps extends Omit<ViewProps, 'style[`flexDirection`]'> {
   gap?: number
@@ -59,7 +59,7 @@ const AhStack = (props: AhStackProps): React.JSX.Element => {
           justifyContent: props.justifyContent,
           alignItems: props.alignItems,
           alignSelf: props.alignSelf,
-          borderRadius: 6,
+          borderRadius: 6
         },
         props.style,
         {
@@ -67,14 +67,14 @@ const AhStack = (props: AhStackProps): React.JSX.Element => {
           flexWrap: props.flexWrap,
           flexBasis: props.flexBasis,
           flexShrink: props.flexShrink,
-          flexGrow: props.flexGrow,
-        },
+          flexGrow: props.flexGrow
+        }
       ]}>
       {props.children}
     </View>
   )
 }
 
-AhStack['name'] = 'AhStack'
+AhStack.name = 'AhStack'
 
-export { AhStack, AhStackProps }
+export { AhStack, type AhStackProps }
