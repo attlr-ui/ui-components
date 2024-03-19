@@ -59,15 +59,23 @@ interface AInputProps {
 }
 
 const AInput: React.ForwardRefExoticComponent<
-AInputProps & TextInputProps & React.RefAttributes<TextInput>
+  AInputProps & TextInputProps & React.RefAttributes<TextInput>
 > = forwardRef<TextInput, AInputProps & TextInputProps>((props, ref) => {
-  const { variant = 'default', style, label, labelStyle, ...otherProps } = props
+  const {
+    variant = 'default',
+    style,
+    label,
+    labelStyle,
+    containerStyle,
+    ...otherProps
+  } = props
   const [isFocused, setIsFocused] = useState(false)
   return (
     <View
       style={[
         containerStyles.base,
-        { borderColor: isFocused ? '#18181B' : '#A1A1AA' }
+        { borderColor: isFocused ? '#18181B' : '#A1A1AA' },
+        containerStyle,
       ]}>
       {label && <Text style={[labelStyles.base, labelStyle]}>{label}</Text>}
 
@@ -84,7 +92,7 @@ AInputProps & TextInputProps & React.RefAttributes<TextInput>
                 | 'focused-underline'
                 | 'default-underline'
             ],
-          otherProps.inputContainerStyle
+          otherProps.inputContainerStyle,
         ]}>
         {props.iconLeft && (
           <View style={[iconStyles.base, props.iconStyle, props.leftIconStyle]}>
@@ -121,30 +129,30 @@ const inputStyle = StyleSheet.create({
   base: {
     flex: 1,
     minHeight: 40,
-    fontSize: 18
+    fontSize: 18,
   },
   // size styles here
   sm: {
-    padding: 6
+    padding: 6,
   },
   md: {
-    padding: 7.5
+    padding: 7.5,
   },
   lg: {
-    padding: 8
+    padding: 8,
   },
   full: {
-    padding: 10
+    padding: 10,
   },
   // Focus variant styles here
   'focused-underline': {
     borderBottomColor: '#18181B',
-    borderBottomWidth: 1.5
+    borderBottomWidth: 1.5,
   },
   'default-underline': {
     borderColor: '#18181B',
-    borderWidth: 1.5
-  }
+    borderWidth: 1.5,
+  },
 })
 
 const iconStyles = StyleSheet.create({
@@ -152,29 +160,29 @@ const iconStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 10,
-    paddingVertical: 6
-  }
+    paddingVertical: 6,
+  },
 })
 
 const containerStyles = StyleSheet.create({
   base: {
     flexDirection: 'column',
     minWidth: 100,
-    gap: 2
+    gap: 2,
   },
   // size styles here
   sm: {
-    width: Dimensions.get('window').width * 0.2
+    width: Dimensions.get('window').width * 0.2,
   },
   md: {
-    width: Dimensions.get('window').width * 0.5
+    width: Dimensions.get('window').width * 0.5,
   },
   lg: {
-    width: Dimensions.get('window').width * 0.8
+    width: Dimensions.get('window').width * 0.8,
   },
   full: {
-    width: Dimensions.get('window').width
-  }
+    width: Dimensions.get('window').width,
+  },
 })
 
 const inputContainerStyles = StyleSheet.create({
@@ -185,20 +193,20 @@ const inputContainerStyles = StyleSheet.create({
     borderColor: '#A1A1AA',
     borderTopColor: 'transparent',
     borderBottomColor: 'transparent',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   underline: {
     borderWidth: 0,
-    borderBottomWidth: 1
-  }
+    borderBottomWidth: 1,
+  },
 })
 
 const labelStyles = StyleSheet.create({
   base: {
     fontSize: 18,
     color: '#18181B',
-    fontWeight: '600'
-  }
+    fontWeight: '600',
+  },
 })
 
 AInput.displayName = 'AInput'
