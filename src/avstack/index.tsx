@@ -1,11 +1,16 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import React from 'react'
-import { type FlexStyle, View, type ViewProps } from 'react-native'
+import {
+  type DimensionValue,
+  type FlexStyle,
+  View,
+  type ViewProps,
+} from 'react-native'
 
 interface AvStackProps extends Omit<ViewProps, 'style.flexDirection'> {
   gap?: number
-  width?: number
-  height?: number
+  width?: DimensionValue | undefined
+  height?: DimensionValue | undefined
   flex?: number
   padding?: number
   margin?: number
@@ -18,6 +23,10 @@ interface AvStackProps extends Omit<ViewProps, 'style.flexDirection'> {
   pl?: number
   pr?: number
   bg?: string
+  px?: number
+  py?: number
+  mx?: number
+  my?: number
   /**
    * @default 'flex-start'
    */
@@ -48,6 +57,10 @@ const AvStack = (props: AvStackProps): React.JSX.Element => {
           margin: props.margin,
           marginTop: props.mt,
           gap: props.gap,
+          marginHorizontal: props.my,
+          marginVertical: props.my,
+          paddingHorizontal: props.px,
+          paddingVertical: props.py,
           marginBottom: props.mb,
           marginLeft: props.ml,
           marginRight: props.mr,
@@ -59,7 +72,7 @@ const AvStack = (props: AvStackProps): React.JSX.Element => {
           justifyContent: props.justifyContent,
           alignItems: props.alignItems,
           alignSelf: props.alignSelf,
-          borderRadius: 6
+          borderRadius: 6,
         },
         props.style,
         {
@@ -67,8 +80,8 @@ const AvStack = (props: AvStackProps): React.JSX.Element => {
           flexWrap: props.flexWrap,
           flexBasis: props.flexBasis,
           flexShrink: props.flexShrink,
-          flexGrow: props.flexGrow
-        }
+          flexGrow: props.flexGrow,
+        },
       ]}>
       {props.children}
     </View>
