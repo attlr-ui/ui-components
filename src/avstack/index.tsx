@@ -57,7 +57,7 @@ const AvStack = (props: AvStackProps): React.JSX.Element => {
           margin: props.margin,
           marginTop: props.mt,
           gap: props.gap,
-          marginHorizontal: props.my,
+          marginHorizontal: props.mx,
           marginVertical: props.my,
           paddingHorizontal: props.px,
           paddingVertical: props.py,

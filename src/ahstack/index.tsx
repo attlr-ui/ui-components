@@ -1,42 +1,47 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import React from 'react';
-import { type DimensionValue, type FlexStyle, View, type ViewProps } from 'react-native';
+import React from 'react'
+import {
+  type DimensionValue,
+  type FlexStyle,
+  View,
+  type ViewProps,
+} from 'react-native'
 
 interface AhStackProps extends Omit<ViewProps, 'style[`flexDirection`]'> {
-  gap?: number;
-  width?: DimensionValue | undefined;
-  height?: DimensionValue | undefined;
-  flex?: number;
-  padding?: number;
-  margin?: number;
-  mt?: number;
-  mb?: number;
-  ml?: number;
-  mr?: number;
-  pt?: number;
-  pb?: number;
-  pl?: number;
-  pr?: number;
-  bg?: string;
-  px?: number;
-  py?: number;
-  mx?: number;
-  my?: number;
+  gap?: number
+  width?: DimensionValue | undefined
+  height?: DimensionValue | undefined
+  flex?: number
+  padding?: number
+  margin?: number
+  mt?: number
+  mb?: number
+  ml?: number
+  mr?: number
+  pt?: number
+  pb?: number
+  pl?: number
+  pr?: number
+  bg?: string
+  px?: number
+  py?: number
+  mx?: number
+  my?: number
   /**
    * @default 'flex-start'
    */
-  justifyContent?: FlexStyle['justifyContent'];
-  alignItems?: FlexStyle['alignItems'];
-  alignSelf?: FlexStyle['alignSelf'];
-  flexWrap?: FlexStyle['flexWrap'];
-  flexBasis?: FlexStyle['flexBasis'];
-  flexShrink?: FlexStyle['flexShrink'];
-  flexGrow?: FlexStyle['flexGrow'];
+  justifyContent?: FlexStyle['justifyContent']
+  alignItems?: FlexStyle['alignItems']
+  alignSelf?: FlexStyle['alignSelf']
+  flexWrap?: FlexStyle['flexWrap']
+  flexBasis?: FlexStyle['flexBasis']
+  flexShrink?: FlexStyle['flexShrink']
+  flexGrow?: FlexStyle['flexGrow']
   /**
    * borderRadius
    *  @default 6
    **/
-  br?: number;
+  br?: number
 }
 
 const AhStack = (props: AhStackProps): React.JSX.Element => {
@@ -52,7 +57,7 @@ const AhStack = (props: AhStackProps): React.JSX.Element => {
           margin: props.margin,
           gap: props.gap,
           marginVertical: props.my,
-          marginHorizontal: props.my,
+          marginHorizontal: props.mx,
           marginTop: props.mt,
           marginBottom: props.mb,
           marginLeft: props.ml,
@@ -80,9 +85,9 @@ const AhStack = (props: AhStackProps): React.JSX.Element => {
       ]}>
       {props.children}
     </View>
-  );
-};
+  )
+}
 
-AhStack.name = 'AhStack';
+AhStack.name = 'AhStack'
 
-export { AhStack, type AhStackProps };
+export { AhStack, type AhStackProps }
