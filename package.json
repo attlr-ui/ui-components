@@ -50,7 +50,7 @@
   "homepage": "https://github.com/attlr-ui/ui-components#readme",
   "devDependencies": {
     "@types/react": "^18.2.61",
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/eslint-plugin": "^8.41.0",
     "eslint": "^8.57.0",
     "eslint-config-standard-with-typescript": "^43.0.1",
     "eslint-plugin-import": "^2.25.2",
